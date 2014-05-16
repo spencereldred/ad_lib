@@ -1,6 +1,6 @@
 AdventureLibrary::Application.routes.draw do
   # new app
-  root 'libraries#index'
+  root 'adventures#index'
 
   resources :libraries do
     resources :adventures
