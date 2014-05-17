@@ -4,8 +4,9 @@ class PagesController < ApplicationController
   end
 
   def show
+    # binding.pry
     @adventure = Adventure.find(params[:adventure_id])
-    @page = @adventure.pages.find_by_name(:start)
+    @page = @adventure.pages.find(params[:id])
     respond_to do |f|
       f.html
       f.json { render json: @page }

@@ -4,7 +4,9 @@ class Adventure < ActiveRecord::Base
 
   before_save :add_guid
 
-  validates :guid, presence: true, length: { minimum: 10 }
+  validates :guid, uniqueness: true, length: { minimum: 10 }
+  validates :title, presence: true
+  validates :author, presence: true
 
   def add_guid
     self.guid ||= SecureRandom.urlsafe_base64(10)
