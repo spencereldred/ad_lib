@@ -27,6 +27,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.14)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.1.4)
     byebug (2.6.0)
       columnize (~> 0.3)
@@ -165,6 +168,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
   coffee-rails (~> 4.0.0)
   dotenv-rails
   jbuilder (~> 1.2)
