@@ -1,8 +1,10 @@
 <h1>List of Adventures</h1>
 <p>
   <% @adventures.each do |adventure| %>
-  
-  <%= link_to "Title: #{adventure.title}, Author: #{adventure.author}", adventure_page_path(adventure.id, adventure.pages.find_by_name(:start).id) %> <br>
+    <% if adventure.pages.find_by_name(:start) %>
+    <%= link_to "Title: #{adventure.title}, Author: #{adventure.author}", adventure_page_path(adventure.id, adventure.pages.find_by_name(:start).id) %> <br>
+    <% end %>
   <% end %>
+
 </p>
 

@@ -16,4 +16,4 @@
 /tmp
 myseed.rb
 .env
-*.dmp
+dump.rdb

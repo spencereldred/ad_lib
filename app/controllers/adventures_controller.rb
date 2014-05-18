@@ -1,6 +1,7 @@
 class AdventuresController < ApplicationController
   def index
     @adventures = Adventure.all
+    # binding.pry
     respond_to do |f| 
       f.html
       f.json { render json: { adventures: @adventures.where(library_id: nil).as_json(only: [:title, :author, :updated_at, :guid],
@@ -9,7 +10,6 @@ class AdventuresController < ApplicationController
   end
 
   def show
-    binding.pry
     @adventure = Adventure.find(id)
     respond_to do |f|
       f.html
@@ -36,6 +36,8 @@ class AdventuresController < ApplicationController
   def edit
   end
 
+
+   # GetLibraries.perform_async('adventures-with-raphael.herokuapp.com/libraries.json')
   def scrape(url)
     # adventures-with-raphael.herokuapp.com/
     response = Typhoeus.get('adventures-with-raphael.herokuapp.com/libraries.json')
@@ -61,7 +63,7 @@ class AdventuresController < ApplicationController
   # [2014-05-16 17:10:09] INFO  ruby 2.1.1 (2014-02-24) [x86_64-darwin12.0]
   # [2014-05-16 17:10:09] INFO  WEBrick::HTTPServer#start: pid=3431 port=3000
 
-
+  # GetAdventures.perform_async
   def get_adventures
     libraries = Library.all
     libraries.each do |library|
